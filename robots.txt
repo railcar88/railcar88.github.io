@@ -1,0 +1,4 @@
+Sitemap: http://railcar88.github.com/sitemapindex.xml
+
+User-Agent: *
+Host: railcar88.github.com
