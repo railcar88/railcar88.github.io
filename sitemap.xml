@@ -7,19 +7,27 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>http://railcar88.github.com/</loc>
-  <lastmod>2017-08-01T21:58:00Z</lastmod>
+  <lastmod>2017-08-02T02:55:00Z</lastmod>
  </url>
  <url>
   <loc>http://railcar88.github.com/2016/</loc>
   <lastmod>2017-08-01T19:55:00Z</lastmod>
  </url>
  <url>
+  <loc>http://railcar88.github.com/2017/</loc>
+  <lastmod>2017-08-02T02:55:00Z</lastmod>
+ </url>
+ <url>
   <loc>http://railcar88.github.com/archive.html</loc>
-  <lastmod>2017-08-01T21:52:00Z</lastmod>
+  <lastmod>2017-08-05T17:43:00Z</lastmod>
  </url>
  <url>
   <loc>http://railcar88.github.com/blog/</loc>
-  <lastmod>2017-08-01T19:55:00Z</lastmod>
+  <lastmod>2017-08-06T20:11:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://railcar88.github.com/blog/a-python-lambda-in-a-coconut-nutshell/</loc>
+  <lastmod>2017-08-05T17:43:00Z</lastmod>
  </url>
  <url>
   <loc>http://railcar88.github.com/blog/happy-new-year/</loc>
@@ -27,11 +35,19 @@
  </url>
  <url>
   <loc>http://railcar88.github.com/categories/</loc>
-  <lastmod>2017-08-01T19:55:00Z</lastmod>
+  <lastmod>2017-08-05T17:52:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://railcar88.github.com/categories/cat_python-fp/</loc>
+  <lastmod>2017-08-05T17:52:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://railcar88.github.com/categories/coconut/</loc>
+  <lastmod>2017-08-05T17:52:00Z</lastmod>
  </url>
  <url>
   <loc>http://railcar88.github.com/contact-us/</loc>
-  <lastmod>2017-08-01T21:55:00Z</lastmod>
+  <lastmod>2017-08-07T17:05:00Z</lastmod>
  </url>
  <url>
   <loc>http://railcar88.github.com/galleries/</loc>
