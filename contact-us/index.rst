@@ -19,7 +19,7 @@
 
         <h2>Services</h2>
 
-        We specialize in Python & Clojure technologies. Contact us for your next software development project. We would be happy to help.
+        We specialize in Python technologies. Contact us for your next software development project. We would be happy to help.
 
         <h3><a href="mailto:scott.scites@railcar88.com">Email</a></h3>
 

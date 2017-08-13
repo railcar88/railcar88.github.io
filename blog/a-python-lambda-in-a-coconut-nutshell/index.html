@@ -95,14 +95,14 @@
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
 <p>I recently Googled for ways to destructure a Python dict. I found this code on stackoverflow:</p>
-<pre class="code python"><a name="rest_code_c8f1918ce2124b73b0eaed03efaecf2d-1"></a><span class="n">pluck</span> <span class="o">=</span> <span class="k">lambda</span> <span class="nb">dict</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="p">(</span><span class="nb">dict</span><span class="p">[</span><span class="n">arg</span><span class="p">]</span> <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_4874a190fe1b42e5a506a223c33ebdf3-1"></a><span class="n">pluck</span> <span class="o">=</span> <span class="k">lambda</span> <span class="nb">dict</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="p">(</span><span class="nb">dict</span><span class="p">[</span><span class="n">arg</span><span class="p">]</span> <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">)</span>
 </pre>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last"><a class="reference external" href="https://stackoverflow.com/questions/2955412/python-destructuring-bind-dictionary-contents">https://stackoverflow.com/questions/2955412/python-destructuring-bind-dictionary-contents</a></p>
 </div>
 <p>From perusing the Coconut documentation, I remembered that Coconut has a special syntax for lambda. So I converted the pluck function to use the Coconut syntax. This is what it looks like now:</p>
-<pre class="code python"><a name="rest_code_e3dab1c98a4843c68516b67819f6052d-1"></a><span class="n">pluck</span> <span class="o">=</span> <span class="p">(</span><span class="nb">dict</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nb">dict</span><span class="p">[</span><span class="n">arg</span><span class="p">]</span> <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_cd1c30336a24499db6c219a6a73b2b2c-1"></a><span class="n">pluck</span> <span class="o">=</span> <span class="p">(</span><span class="nb">dict</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nb">dict</span><span class="p">[</span><span class="n">arg</span><span class="p">]</span> <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">)</span>
 </pre>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -114,10 +114,10 @@
 </div>
 <p>You will notice that the lambda is removed in favor of arrow (-&gt;). The placement also changed with the positioning of the arrow coming after the parameters dict and star args. The way I think about the operation of this function is that I am going to give the function a dict and any number of arguments. The expression inside the function loops through the args and yield each value associated with the arg from the dict. Each yielded value is assigned to the respective variable on the left.</p>
 <p>You might be wondering what the python code looks like after compilation. To compile the file_name.coco file you would run the following command:</p>
-<pre class="code shell"><a name="rest_code_2fa550867e344238bb17247ba875e44c-1"></a>$ coconut file_name.coco --target <span class="m">36</span> --mypy
+<pre class="code shell"><a name="rest_code_e58b61aa6097437fb8693e884d6fb115-1"></a>$ coconut file_name.coco --target <span class="m">36</span> --mypy
 </pre>
 <p>I pass the file to the Coconut compiler. In my case, I am targeting the Python 3.6.1 interpreter. Although MyPy isn't particularly useful for this code, I also ask Coconut to run the code against the MyPy type checker. The Python that Coconut outputs unsurprisingly looks like this:</p>
-<pre class="code python"><a name="rest_code_4ad2ee23944c4ec8a289da6911102d87-1"></a><span class="n">pluck</span> <span class="o">=</span> <span class="k">lambda</span> <span class="nb">dict</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="p">(</span><span class="nb">dict</span><span class="p">[</span><span class="n">arg</span><span class="p">]</span> <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_6c8ef78ba1c043a9b02ff5d7ed3d6878-1"></a><span class="n">pluck</span> <span class="o">=</span> <span class="k">lambda</span> <span class="nb">dict</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="p">(</span><span class="nb">dict</span><span class="p">[</span><span class="n">arg</span><span class="p">]</span> <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">)</span>
 </pre>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -125,11 +125,11 @@
 </div>
 <p>Now we have come full circle to our original code snippet.</p>
 <p>This is the usage of the function:</p>
-<pre class="code python"><a name="rest_code_b709d74464c2415dbd444b4e858ff6ab-1"></a><span class="n">upload_data</span> <span class="o">=</span> <span class="p">{}</span>
-<a name="rest_code_b709d74464c2415dbd444b4e858ff6ab-2"></a><span class="n">upload_data</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"example"</span>
-<a name="rest_code_b709d74464c2415dbd444b4e858ff6ab-3"></a><span class="n">upload_data</span><span class="p">[</span><span class="s2">"description"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"this is a demo"</span>
-<a name="rest_code_b709d74464c2415dbd444b4e858ff6ab-4"></a><span class="n">upload_data</span><span class="p">[</span><span class="s2">"file_name"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"demo.png"</span>
-<a name="rest_code_b709d74464c2415dbd444b4e858ff6ab-5"></a><span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">file_name</span> <span class="o">=</span> <span class="n">pluck</span><span class="p">(</span><span class="n">upload_data</span><span class="p">,</span> <span class="s1">'name'</span><span class="p">,</span> <span class="s1">'description'</span><span class="p">,</span> <span class="s1">'file_name'</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_1cd0af9d16e94f8cb333c7028e82d3fd-1"></a><span class="n">upload_data</span> <span class="o">=</span> <span class="p">{}</span>
+<a name="rest_code_1cd0af9d16e94f8cb333c7028e82d3fd-2"></a><span class="n">upload_data</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"example"</span>
+<a name="rest_code_1cd0af9d16e94f8cb333c7028e82d3fd-3"></a><span class="n">upload_data</span><span class="p">[</span><span class="s2">"description"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"this is a demo"</span>
+<a name="rest_code_1cd0af9d16e94f8cb333c7028e82d3fd-4"></a><span class="n">upload_data</span><span class="p">[</span><span class="s2">"file_name"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"demo.png"</span>
+<a name="rest_code_1cd0af9d16e94f8cb333c7028e82d3fd-5"></a><span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">file_name</span> <span class="o">=</span> <span class="n">pluck</span><span class="p">(</span><span class="n">upload_data</span><span class="p">,</span> <span class="s1">'name'</span><span class="p">,</span> <span class="s1">'description'</span><span class="p">,</span> <span class="s1">'file_name'</span><span class="p">)</span>
 </pre>
 <p>I find this syntax more elegant. Often times with syntax small things add up to make something nicer. This is one way that Coconut makes it pleasant for me to use Python.</p>
 </div>
